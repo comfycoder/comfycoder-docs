@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installing Git</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#installing-git">Installing Git</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="installing-git">Installing Git</h1>
+<p>Navigate to the Git home page.<br>
+<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p>
+<p><img src="https://lh3.googleusercontent.com/Q4xrS2gxnSYYXm7CE9SHJPb54PHdeg6BNuSvoZUMdp15ytqvk9zkDWvb327sYB_wBqy7iOaPeHY" alt="enter image description here" title="Git Home Page"></p>
+<p>Click the <strong>Download</strong> button to obtain the Git setup program.</p>
+<p><img src="https://lh3.googleusercontent.com/xJ8gnVDM0Fg-2swjEBIzefAqZpnPvcvYzgDrnZPWd8N3Rpu_CVA3UnOQxk-YoQNeV8q1BKR5aS0" alt="enter image description here" title="Git Setup"><br>
+Run the Git Setup program.</p>
+<p>The Git setup wizard appears.</p>
+<p><img src="https://lh3.googleusercontent.com/8jol7Rh6W6NSOKVCETtP5myj0yyfXFgYAGyb0ELZXu4Cr3avAvliqnj40ecdYf1HcQ9x1MQNDzA" alt="enter image description here" title="Start Installation"><br>
+Click the <strong>Next</strong> button.</p>
+<p>The <strong>Select Components</strong> step appears.</p>
+<p><img src="https://lh3.googleusercontent.com/Yaf4QN9TYGZAcKoAFYMdJQq-2m_6FAM1tgqJZ8vRlJ-KbLGrD2mKGRmQC-k9lGa9JyIcSqzPgNs" alt="enter image description here" title="Select Components"><br>
+Click the <strong>Next</strong> button.</p>
+<p>The <strong>Choose Editor</strong> step appears.</p>
+<p><img src="https://lh3.googleusercontent.com/6tyWBEpjmeSL_yvptbJLS93au5JxlzNot89HKZu5KSuMcy2gQoIGKmvQGfvZHz_Qb4jOIRmiCFM" alt="enter image description here" title="Choose Editor"><br>
+Select your favorite editor from the dropdown list. (e.g., Visual Studio Code)</p>
+<p>Click the <strong>Next</strong> button.</p>
+<p>The <strong>Path</strong> view appears.</p>
+<p><img src="https://lh3.googleusercontent.com/HHtmGGqAUMRqXDxIVv6bu4PBD5Mc9Y5j9YnbKzrrJzvh0jnKvRLzZhOxHGbxQopjUJQub3M9YyA" alt="enter image description here" title="Choose Path"><br>
+Click the <strong>Next</strong> button.</p>
+<p>The <strong>Choose Https Transport</strong> step appears.</p>
+<p><img src="https://lh3.googleusercontent.com/yokKOBTkn5y4sc89UpkY9Z3SURMXUQyUhSsMo3VEmmBkoh6Y6Rg0_QBq3ei_-Qxq-8xnnDxUSqY" alt="enter image description here" title="Choose Https Transport"><br>
+Recommend chooseing the <strong>Use the OpenSSL library</strong> option.</p>
+<p>Click the <strong>Next</strong> button.</p>
+<p>The <strong>Configure Line Endings</strong> view appears.</p>
+<p><img src="https://lh3.googleusercontent.com/IEunlTYfvUfRtXUeY_s6TDAn7wwjx-LKkqUqC5G1E7ngezRJk9BNm04lSUH1VPqG07d0wnhrY7A" alt="enter image description here" title="Configure Line Endings"><br>
+Recommend choosing the <strong>Checkout Windows-style, commit Unix-style line endings</strong> option.</p>
+<p>Click the <strong>Next</strong> button.</p>
+<p>The Configure Terminal Editor view appears.</p>
+<p><img src="https://lh3.googleusercontent.com/877XVs1UC0o0AvE-0hYQrsiClM7xw4oCL0lLr5hS7CCWX7ylFJvl8bNAWk6bsh4S3bBFg4SbXQY" alt="enter image description here" title="Configure Terminal Editor"></p>
+<p>Recommend choosing the <strong>Use MinTTY</strong> option.</p>
+<p>Click the <strong>Next</strong> button.</p>
+<p>The Configure Extra Options view appears.</p>
+<p><img src="https://lh3.googleusercontent.com/xmsW1TJURREaCoQwZKgKTSvKe3tn8rp0KamzJ-k9cWlk2UmXvFhD4rkucnvPUvMrzNx2ZIrhFwg" alt="enter image description here" title="Configure Extra Options"></p>
+<p>Click the Next button.</p>
+<p>The Git installation commences.</p>
+<p><img src="https://lh3.googleusercontent.com/6P7BNl-e8lqwR0Q8X0f0SXLogUN0LIZWo9I0Db9p74_APCT8lWF-_h7VMKDNY53eM7idFdY0waE" alt="enter image description here" title="Git Installation Commences"></p>
+<p>The Git installation completes.</p>
+<p><img src="https://lh3.googleusercontent.com/4D5dErsVwZY2_prhe_gIi-iKC151-ZHzxSf2dv0UmBCYhxRE9M3yLssfyLci-6L8wDlOY-i5EbA" alt="enter image description here" title="Git Installation Finished"></p>
+<p>Click the <strong>Finish</strong> button.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
