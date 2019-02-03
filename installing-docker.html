@@ -11,6 +11,22 @@
 <body class="stackedit">
   <div class="stackedit__html"><p><a href="index.html">Back to TOC</a></p>
 <h1 id="installing-docker-desktop-for-windows">Installing Docker Desktop For Windows</h1>
+<p>Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. By doing so, thanks to the container, the developer can rest assured that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.</p>
+<h2 id="enable-microsoft-hyper-v">Enable Microsoft Hyper-V</h2>
+<p>Microsoft Hyper-V is a native hypervisor that can create virtual machines on x86-64 systems running Windows.</p>
+<p>Prior to installing Docker Desktop, you need to enable Hyper-V on Windows 10.</p>
+<p>Open a PowerShell Command line window as an administrator.</p>
+<p><img src="https://lh3.googleusercontent.com/CH5lFUVmeWhGjQw8TIngPxsQfIw1uXv_JTuo1USnr6BGvutvOfqQu9BfAVQiIABcpxZ2_PzZV7E" alt="enter image description here" title="PowerShell Command line Window"></p>
+<p>The PowerShell Command line appears.</p>
+<p><img src="https://lh3.googleusercontent.com/znd6xCe31WFuo7wiAPnuzD4KiZIIe9_Fg2aGj2m2l7DD0vt50i9oWxMAQBk79yXiXSqqhtYqWBE" alt="enter image description here" title="Install Hyper-V"></p>
+<p>Run the following PowerShell command statement:</p>
+<pre><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -A
+</code></pre>
+<p>Windows prompts you with the following:</p>
+<p><img src="https://lh3.googleusercontent.com/R1-BFsnJ9L-MDcWB5IWU_RvjmW3LUq3VNwJqg0bPE8Y2XnCAN_fikQUisGvQM3lS3HrFL0lK7VY" alt="enter image description here" title="Enable Hyper-V"></p>
+<p>Type “Y” and press the Enter key.</p>
+<p>Windows run the PowerShell command and enables Hyper-V.</p>
+<h2 id="install-docker">Install Docker</h2>
 <p>Navigate to the <strong>Docker</strong> getting-started page.<br>
 <a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a></p>
 <p><img src="https://lh3.googleusercontent.com/3EKOY8TgAHOZYzAL7YDhrwB3CBTklMxWKGJ7E_6AKMcVKP37nkt3_V5qwzK8TGlGFLj1LUq8VrQ" alt="enter image description here" title="Docker Getting STarted"></p>
@@ -34,7 +50,13 @@
 <p><img src="https://lh3.googleusercontent.com/hcLM6-6me8qe3PXsro-bHhNPjed0q2uKBF6XeFtt2c1pEkposRa6QmB2Wre-MtgzQVy2td0lbuk" alt="enter image description here" title="Installation Finished"></p>
 <p>Click the <strong>Close</strong> button.</p>
 <p>You are now ready to configure <strong>Docker Desktop</strong>.</p>
-<p>From the Windows 10 Yask Bar, open the system tray icons, and right-click on the docker icon.</p>
+<h2 id="login-to-docker-hub">Login To Docker Hub</h2>
+<p>The first time you run Docker Desktop, it prompts you to login with your Docker ID.</p>
+<p><img src="https://lh3.googleusercontent.com/QIiqFpS4DJxCCrOoGORX_J8Xj_z1vlXqxO9NaX1iuiJt6C2nO9UZFhYo6GKWFRLVOwS02i9asRna" alt="enter image description here" title="Docker Sign In"></p>
+<p>Enter your Docker user account ID and password.</p>
+<p>Click the Login button.</p>
+<h2 id="configure-docker-settings">Configure Docker Settings</h2>
+<p>From the Windows 10 Task Bar, open the system tray icons, and right-click on the docker icon.</p>
 <p>The Docker context menu appears.</p>
 <p><img src="https://lh3.googleusercontent.com/vMzSBk0CVLryqp2rzag2d9_7E2-J-FNS5OOf92GT0uDnxXjwHzcQuxI1w9edyYTzd5riKVsxaPE" alt="enter image description here" title="Open Docker Menu"></p>
 <p>Click on the Setting menu item.</p>
