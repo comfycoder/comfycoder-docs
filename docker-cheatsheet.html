@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker Cheatsheet</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="docker-cheatsheet">Docker Cheatsheet</h1>
+<h2 id="variables-shown-in-this-document">Variables Shown In This Document</h2>
+<p>For the following Docker command examples, the variables show are defined as follows:</p>
+<p><strong><em>image_name</em></strong> = Name you wish to assign to the image (e.g., “myapp”)</p>
+<p><strong><em>image_tag</em></strong> = An image tag used to version a container. (e.g. “v1”, “12345”, or “1.2.3”) The goal is to produce a specific fixed tag to pin a container or generate an incremental tag to coerce an upgrade to a newer version of a container.</p>
+<p><em><strong>image_id</strong></em> = A randomly generated id value assigned to an image. (e.g., a3be3b32798e)</p>
+<p><strong><em>registry_name</em></strong> = (optional for local Docker containers) The fill name of a Docker or Private container registry. Note that DockerHub is the default container registry used by Docker on your local machine.</p>
+<p><strong><em>container_name</em></strong> = This is a combination of either of the following:</p>
+<ul>
+<li><em>image_name</em>:<em>image_tag</em></li>
+</ul>
+<p>(when running locally using docker)</p>
+<ul>
+<li><em>registry_name</em>/<em>image_name</em>:<em>image_tag</em></li>
+</ul>
+<p>(when referring to an image in a remote container registry)</p>
+<p><em><strong>container_id</strong></em> = A randomly generated id value assigned to a container.</p>
+<p><strong><em>port_int</em></strong> = The port number specified inside the docker file. (e.g., 80)</p>
+<p><strong><em>port_ext</em></strong> = The port address to externally expose an application when running a container inside docker. (e.g., 8081)</p>
+<p><em><strong>volume_name</strong></em> = The name of a volume (think directory folder) running inside of docker.</p>
+<h2 id="docker-commands">Docker Commands</h2>
+<p><strong>List running containers</strong></p>
+<p>docker ps</p>
+<p><strong>List all containers (includes containers that are not running)</strong></p>
+<p>docker ps -a</p>
+<p><strong>Stop a container</strong></p>
+<p>docker stop <em>container_name</em></p>
+<p>docker stop <em>container_id</em></p>
+<p><strong>Stop all containers</strong></p>
+<p>docker stop $(docker ps -aq)</p>
+<p><strong>Remove a container</strong></p>
+<p>docker rm -f <em>container_name</em></p>
+<p>docker rm -f <em>container_id</em></p>
+<p><strong>Remove all containers</strong></p>
+<p>docker rm $(docker ps -aq)</p>
+<p><strong>List all images</strong></p>
+<p>docker images</p>
+<p>docker image ls</p>
+<p><strong>Remove an image</strong></p>
+<p>docker rmi image_id</p>
+<p>docker image rm image_name</p>
+<p><strong>Remove all images</strong></p>
+<p>docker rmi $(docker images -q) -f</p>
+<p><strong>Build a docker image</strong></p>
+<p>docker build -t <em>container_name</em> .</p>
+<p><strong>View docker container logs</strong></p>
+<p>docker logs <em>container_name</em></p>
+<p>docker logs <em>container_id</em></p>
+<p><strong>Pull an image from a registry</strong></p>
+<p>docker pull <em>registry_name</em>/<em>image_name</em></p>
+<p><strong>Run a container locally</strong></p>
+<p>docker run -d -p <em>port_ext</em>:<em>port_int</em> <em>image_name</em></p>
+<p><strong>Run a container remotely</strong></p>
+<p>docker run -d -p <em>port_ext</em>:<em>port_int</em> –name <em>container_name</em> <em>image_name</em></p>
+<p><strong>Run container using Git bash for local code in volume</strong></p>
+<p>docker run -d -p 8081:80 -v /$(pwd):/app <em>registry_name</em>/<em>image_name</em></p>
+<p><strong>Run container using Windows command line for local code in volume</strong></p>
+<p>docker run -d -p 8081:80 -v $(pwd):/app <em>registry_name</em>/<em>image_name</em></p>
+<p><strong>Docker Run Options</strong></p>
+<p>docker run</p>
+<p>Additional command line arguments for Docker run command:</p>
+<p>-d (run detached)</p>
+<p>-it (interactive terminal</p>
+<p>-p (publish a port)</p>
+<p>-v (mount a volume)</p>
+<p>–name (name a container)</p>
+<p>–link (communicate between containers)</p>
+<p>–rm (auto-delete when container stops)</p>
+<p>-e NAME=value (environment varIables)</p>
+<p><strong>View in browser</strong></p>
+<p>localhost:8081</p>
+<p><strong>List all volumes</strong></p>
+<p>docker volume ls</p>
+<p><strong>Remove a volume</strong></p>
+<p>docker volume rm <em>volume_name</em></p>
+</div>
+</body>
+
+</html>
