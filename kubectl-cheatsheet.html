@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kubectl Cheatsheet</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="kubectl-cheatsheet">Kubectl Cheatsheet</h1>
+<p><strong>Display the current kubernetes context</strong></p>
+<pre><code>kubectl config current-context
+</code></pre>
+<p><strong>Create a resource from a manifest file</strong></p>
+<pre><code>kubectl create -f "./my-manifest.yaml"
+</code></pre>
+<h3 id="get-commands-with-basic-output">Get commands with basic output</h3>
+<p><strong>List all services in the namespace</strong></p>
+<pre><code>kubectl get services
+</code></pre>
+<p><strong>List all pods in all namespaces</strong></p>
+<pre><code>kubectl get pods --all-namespaces
+</code></pre>
+<p><strong>List all pods in the namespace, with more details</strong></p>
+<pre><code>kubectl get pods -o wide
+</code></pre>
+<p><strong>List a particular deployment</strong></p>
+<pre><code>kubectl get deployment my-deployment
+</code></pre>
+<p><strong>List all pods in the namespace, including uninitialized ones</strong></p>
+<pre><code>kubectl get pods --include-uninitialized
+</code></pre>
+<p><strong>Describe commands with verbose output</strong></p>
+<pre><code>kubectl describe nodes my-node
+
+kubectl describe pods my-pod
+
+kubectl describe services my-service
+</code></pre>
+<p><strong>List Services Sorted by Name</strong></p>
+<pre><code>kubectl get services --sort-by=.metadata.name 
+</code></pre>
+<p><strong>List pods Sorted by Restart Count</strong></p>
+<pre><code>kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
+</code></pre>
+<p><strong>Get the version label of all pods with label app=cassandra</strong></p>
+<pre><code>kubectl get pods --selector=app=cassandra rc -o \
+  jsonpath='{.items[*].metadata.labels.version}'
+</code></pre>
+<p><strong>Get all worker nodes (use a selector to exclude results that have a label named ‘<a href="http://node-role.kubernetes.io/master">node-role.kubernetes.io/master</a>’)</strong></p>
+<pre><code>kubectl get node --selector='!node-role.kubernetes.io/master'
+</code></pre>
+<p><strong>Get all running pods in the namespace</strong></p>
+<pre><code>kubectl get pods --field-selector=status.phase=Running
+</code></pre>
+<p><strong>Get ExternalIPs of all nodes</strong></p>
+<pre><code>kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+</code></pre>
+<p><strong>Check which nodes are ready</strong></p>
+<pre><code>JSONPATH='{range .items[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status};{end}{end}' \
+ &amp;&amp; kubectl get nodes -o jsonpath="$JSONPATH" | grep "Ready=True"
+</code></pre>
+<p><strong>List all Secrets currently in use by a pod</strong></p>
+<pre><code>kubectl get pods -o json | jq '.items[].spec.containers[].env[]?.valueFrom.secretKeyRef.name' | grep -v null | sort | uniq
+</code></pre>
+<p><strong>List Events sorted by timestamp</strong></p>
+<pre><code>kubectl get events --sort-by=.metadata.creationTimestamp
+</code></pre>
+<h2 id="edit-any-api-resource-in-an-editor">Edit any API resource in an editor</h2>
+<p><strong>Edit the service named docker-registry</strong></p>
+<pre><code>kubectl edit svc/docker-registry   
+</code></pre>
+<p><strong>Use an alternative editor</strong></p>
+<pre><code>KUBE_EDITOR="nano" kubectl edit svc/docker-registry   
+</code></pre>
+<h2 id="deleting-resources">Deleting Resources</h2>
+<p><strong>Delete a pod using the type and name specified in pod.json</strong></p>
+<pre><code>kubectl delete -f ./pod.json
+</code></pre>
+<p><strong>Delete pods and services with same names “baz” and "foo"</strong></p>
+<pre><code>kubectl delete pod,service baz foo
+</code></pre>
+<p><strong>Delete pods and services with label name=myLabel</strong></p>
+<pre><code>kubectl delete pods,services -l name=myLabel
+</code></pre>
+<p><strong>Delete pods and services, including uninitialized ones, with label name=myLabel</strong></p>
+<pre><code>kubectl delete pods,services -l name=myLabel --include-uninitialized
+
+kubectl -n my-ns delete po,svc --all   
+</code></pre>
+<h2 id="interacting-with-running-pods">Interacting with running Pods</h2>
+<p><strong>Dump pod logs (stdout)</strong></p>
+<pre><code>kubectl logs my-pod
+</code></pre>
+<p><strong>Dump pod logs (stdout) for a previous instantiation of a container</strong></p>
+<pre><code>kubectl logs my-pod --previous
+</code></pre>
+<p><strong>Dump pod container logs (stdout, multi-container case)</strong></p>
+<pre><code>kubectl logs my-pod -c my-container
+</code></pre>
+<p><strong>Dump pod container logs (stdout, multi-container case) for a previous instantiation of a container</strong></p>
+<pre><code>kubectl logs my-pod -c my-container --previous
+</code></pre>
+<p><strong>Stream pod logs (stdout)</strong></p>
+<pre><code>kubectl logs -f my-pod
+</code></pre>
+<p><strong>Stream pod container logs (stdout, multi-container case)</strong></p>
+<pre><code>kubectl logs -f my-pod -c my-container
+</code></pre>
+<p><strong>Run pod as interactive shell</strong></p>
+<pre><code>kubectl run -i --tty busybox --image=busybox -- sh
+</code></pre>
+<p><strong>Attach to Running Container</strong></p>
+<pre><code>kubectl attach my-pod -i
+</code></pre>
+<p><strong>Listen on port 5000 on the local machine and forward to port 6000 on my-pod</strong></p>
+<pre><code>kubectl port-forward my-pod 5000:6000
+</code></pre>
+<p><strong>Run command in existing pod (1 container case)</strong></p>
+<pre><code>kubectl exec my-pod -- ls / 
+</code></pre>
+<p><strong>Run command in existing pod (multi-container case)</strong></p>
+<pre><code>kubectl exec my-pod -c my-container -- ls / 
+</code></pre>
+<p><strong>Show metrics for a given pod and its containers</strong></p>
+<pre><code>kubectl top pod POD_NAME --containers
+</code></pre>
+</div>
+</body>
+
+</html>
